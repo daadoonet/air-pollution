@@ -4,7 +4,6 @@
 import re
 import requests
 from bs4 import BeautifulSoup
-import csv
 
 '''----------------------------------------------------------------------request----------------------------------------------------------------------'''
 
@@ -43,19 +42,6 @@ def regex(html1,html2):
     year_info = (re.findall(r"days=(\d*)", str(html2)))
     return last_day_info,now_info,year_info
 
-'''----------------------------------------------------------------------read-from-csv----------------------------------------------------------------------'''
-
-def read_from_csv(filename):
-
-    aqidatadict = dict()
-    with open(filename, "r") as inputfile:
-        reader = csv.reader(inputfile)
-        for raw in reader :
-            #print (raw)
-            aqidatadict[raw[0]] = raw[1]
-        #print (aqidatadict)
-    return aqidatadict
-
 '''----------------------------------------------------------------------year-info-dict----------------------------------------------------------------------'''
 
 def year_info_dict(year_info):
@@ -69,14 +55,8 @@ def year_info_dict(year_info):
 
     return(dictionary)
 
-'''----------------------------------------------------------------------TEST----------------------------------------------------------------------'''
+'''----------------------------------------------------------------------exp----------------------------------------------------------------------'''
 
 last_day_and_now, year_info = request()
-#    print(year_info)
-#    print('html is: ' , last_day_and_now)
 last_day_info,now_info,year_info = regex(last_day_and_now,year_info)
-#    print('last_day_info is: ' , last_day_info)
-#    print('now_info is: ' , now_info)
-aqi_data = read_from_csv('aqi_data.csv')
 year_info = year_info_dict(year_info)
-#    print(year_info)
