@@ -1,10 +1,9 @@
 '''----------------------------------------------------------------------import----------------------------------------------------------------------'''
 
-
 import csv
+import pandas as pd
 
 '''----------------------------------------------------------------------read-from-csv----------------------------------------------------------------------'''
-
 
 def read_from_csv(filename):
 
@@ -19,4 +18,8 @@ def read_from_csv(filename):
 
 '''----------------------------------------------------------------------exp----------------------------------------------------------------------'''
 
-aqi_data = read_from_csv('aqi_data.csv')
+aqi_data_dict = read_from_csv('aqi_data.csv')
+aqi_data_list = pd.read_csv('aqi_data.csv')
+last7_data_list = pd.read_csv('aqi_data.csv',skiprows=len(aqi_data_list)-6)
+last30_data_list = pd.read_csv('aqi_data.csv',skiprows=len(aqi_data_list)-29)
+
