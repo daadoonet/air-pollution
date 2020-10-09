@@ -20,6 +20,5 @@ def read_from_csv(filename):
 
 aqi_data_dict = read_from_csv('aqi_data.csv')
 aqi_data_list = pd.read_csv('aqi_data.csv')
-last7_data_list = pd.read_csv('aqi_data.csv',skiprows=len(aqi_data_list)-6)
-last30_data_list = pd.read_csv('aqi_data.csv',skiprows=len(aqi_data_list)-29)
+
 

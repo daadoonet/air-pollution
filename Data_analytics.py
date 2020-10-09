@@ -14,13 +14,13 @@ def plot(data_list,title):
     plt.figure()
     plt.title(title)
 
-    plt.plot( data_list[0], data_list[1] )
+    plt.plot( data_list['Date'], data_list['Pollution'] )
 
     plt.xlabel('Date')
     plt.ylabel('Pollution')
-    plt.show()
+    return plt.show()
 
-plot(last7_data_list,'last 7 days')
-plot(last30_data_list,'last 30 days')
+x = plot(aqi_data_list.tail(7),'last 7 days')
+y = plot(aqi_data_list.tail(30),'last 30 days')
 
-
+y
