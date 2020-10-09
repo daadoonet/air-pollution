@@ -1,7 +1,7 @@
 
 #just for test
 #it must use in main.py
-from readcsv import *
+#from readcsv import *
 
 
 
@@ -20,7 +20,5 @@ def plot(data_list,title):
     plt.ylabel('Pollution')
     return plt.show()
 
-x = plot(aqi_data_list.tail(7),'last 7 days')
-y = plot(aqi_data_list.tail(30),'last 30 days')
-
-y
+#plot(aqi_data_list.tail(7),'last 7 days')
+#plot(aqi_data_list.tail(30),'last 30 days')
